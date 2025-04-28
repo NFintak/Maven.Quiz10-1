@@ -13,25 +13,28 @@ public class Food {
     List<Spice> spiceList;
 
     public Food() {
-            this.spiceList = new ArrayList<>();
+        this.spiceList = new ArrayList<>();
     }
 
-    public Food(ArrayList<Spice> list) {this.spiceList = list;}
+    public Food(ArrayList<Spice> list) {
+        this.spiceList = list;
+    }
 
     public List<Spice> getAllSpices() {
         return this.spiceList;
     }
 
     public <SpiceType extends Class<? extends Spice>> Map<SpiceType, Integer> getSpiceCount() {
-        Map<SpiceType, Integer> spiceMap = new HashMap<>();
-//        for (Spice spice : this.spiceList) {
-//            if (!spiceMap.containsKey(spice)) {
-//                spiceMap.put(spice, 1);
-//            } else {
-//                spiceMap.put(spice, spiceMap.get(spice) + 1);
-//            }
-//        }
-        return spiceMap;
+        Map<Spice, Integer> spiceMap = new HashMap<>();
+        for (Spice spice : this.spiceList) {
+            if (!spiceMap.containsKey(spice)) {
+                spiceMap.put(spice, 1);
+            } else {
+                spiceMap.put(spice, spiceMap.get(spice) + 1);
+            }
+        }
+        //return spiceMap;
+        return null;
     }
 
     public void applySpice(Spice spice) {
